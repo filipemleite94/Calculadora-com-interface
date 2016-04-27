@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.event.*;
+import java.io.*;
 
 public class Calculadora extends JFrame {
 
@@ -23,7 +24,7 @@ public class Calculadora extends JFrame {
     private int leitura;
     private int memoria;
     private char operacao;
-
+    
     public Calculadora() {
         this.setTitle("Calculadora");
         this.setBounds(0, 0, 290, 370);
@@ -32,6 +33,7 @@ public class Calculadora extends JFrame {
 
         leitura = 0;
         memoria = 0;
+        operacao = '+';
 
         somar = new JButton();
         somar.setText("+");
@@ -199,8 +201,31 @@ public class Calculadora extends JFrame {
         
         somar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                operacao = '+';
-                memoria += leitura;
+            	switch (operacao) {
+                case '+': {
+                    memoria += leitura;
+                    operacao='+';
+                    break;
+                }
+                
+                case '-': {
+                    memoria -= leitura;
+                    operacao='-';
+                    break;
+                }
+                
+                case '*': {
+                    memoria *= leitura;
+                    operacao='*';
+                    break;
+                }
+                
+                case '/': {
+                    memoria /= leitura;
+                    operacao='/';
+                    break;
+                }	
+            }
                 leitura = 0;
                 display.setText("");
             }
@@ -208,8 +233,28 @@ public class Calculadora extends JFrame {
 
         subtracao.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                operacao = '-';
-                memoria -= leitura;
+            	switch (operacao) {
+                case '+': {
+                    memoria += leitura;
+                    break;
+                }
+                
+                case '-': {
+                    memoria -= leitura;
+                    break;
+                }
+                
+                case '*': {
+                    memoria *= leitura;
+                    break;
+                }
+                
+                case '/': {
+                    memoria /= leitura;
+                    break;
+                }	
+            }
+            	operacao = '-';
                 leitura = 0;
                 display.setText("");
             }
@@ -217,8 +262,28 @@ public class Calculadora extends JFrame {
 
         multiplicacao.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                operacao = '*';
-                memoria *= leitura;
+            	switch (operacao) {
+                case '+': {
+                    memoria += leitura;
+                    break;
+                }
+                
+                case '-': {
+                    memoria -= leitura;
+                    break;
+                }
+                
+                case '*': {
+                    memoria *= leitura;
+                    break;
+                }
+                
+                case '/': {
+                    memoria /= leitura;
+                    break;
+                }	
+            }
+            	operacao = '*';
                 leitura = 0;
                 display.setText("");
             }
@@ -226,8 +291,28 @@ public class Calculadora extends JFrame {
         
         divisao.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                operacao = '/';
-                memoria /= leitura;
+            	switch (operacao) {
+                case '+': {
+                    memoria += leitura;
+                    break;
+                }
+                
+                case '-': {
+                    memoria -= leitura;
+                    break;
+                }
+                
+                case '*': {
+                    memoria *= leitura;
+                    break;
+                }
+                
+                case '/': {
+                    memoria /= leitura;
+                    break;
+                }	
+            }
+            	operacao = '/';
                 leitura = 0;
                 display.setText("");
             }
@@ -244,7 +329,7 @@ public class Calculadora extends JFrame {
         
         igual.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                switch (operacao) {
+                	switch (operacao) {
                     case '+': {
                         memoria += leitura;
                         break;
@@ -263,7 +348,7 @@ public class Calculadora extends JFrame {
                     case '/': {
                         memoria /= leitura;
                         break;
-                    }
+                    }	
                 }
                 leitura = 0;
                 display.setText("" + memoria);
@@ -272,7 +357,7 @@ public class Calculadora extends JFrame {
     } // construtor
 
     public static void main(String[] args) {
-        Calculadora exemplo = new Calculadora();
-        exemplo.setVisible(true);
+        Calculadora calculadora = new Calculadora();
+        calculadora.setVisible(true);
     }
 } // classe
