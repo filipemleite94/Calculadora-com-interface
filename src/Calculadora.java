@@ -309,7 +309,7 @@ public class Calculadora extends JFrame {
                 }
                 
                 case '/': {
-                    memoria /= leitura;
+                    //memoria /= leitura;
                     break;
                 }	
             }
@@ -351,6 +351,7 @@ public class Calculadora extends JFrame {
                         break;
                     }	
                 }
+                operacao = '+';
                 leitura = 0;
                 display.setText("" + memoria);
             }
