@@ -226,6 +226,7 @@ public class Calculadora extends JFrame {
                     break;
                 }	
             }
+            	operacao = '+';
                 leitura = 0;
                 display.setText("");
             }
